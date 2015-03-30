@@ -35,8 +35,10 @@
                 @endif
                 <li role="presentation"><a href="{{ route('update/hardware', $asset->id) }}">@lang('admin/hardware/general.edit')</a></li>
                 <li role="presentation"><a href="{{ route('clone/hardware', $asset->id) }}">@lang('admin/hardware/general.clone')</a></li>
+                @if ($asset->model->manufacturer->name == 'Apple')
                 <li role="presentation"><a href="https://munkireport.reallifechurch.org/index.php?/clients/detail/{{{ $asset->serial }}}">Munki Report</a></li>
-                <li role="presentation"><a href="https://remote.reallifechurch.org/Host#All%20Machines/{{{ $asset->serial }}}">Munki Report</a></li>
+                <li role="presentation"><a href="https://remote.reallifechurch.org/Host#All%20Machines/{{{ $asset->serial }}}">Remote Control</a></li>
+                @endif
             </ul>
         </div>
 
